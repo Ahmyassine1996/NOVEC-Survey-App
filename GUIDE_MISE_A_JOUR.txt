@@ -1,0 +1,18 @@
+NOVEC SURVEY V1.4 — INSTALLATION SUR GITHUB PAGES
+
+IMPORTANT : SAUVEGARDE AVANT MISE À JOUR
+Sur chaque téléphone utilisant déjà la V1.3, ouvrir l’onglet Exports puis « Télécharger la sauvegarde » (JSON complet). Conserver ce fichier hors du téléphone.
+
+1. Décompresser NOVEC_Survey_V1.4_PRET_GITHUB.zip sur votre PC.
+2. Ouvrir votre dépôt GitHub actuel NOVEC Survey, sur la branche main.
+3. Charger / remplacer le CONTENU du dossier décompressé, avec index.html à la racine (ainsi que js/, data/, icons/, NOVEC.png...).
+4. Cliquer sur Commit changes.
+5. Attendre le déploiement GitHub Pages, ouvrir le même lien HTTPS sur Chrome Android.
+6. Accepter la mise à jour et relancer l’application. Vérifier V1.4 dans l'en-tête.
+7. Dans « Mes visites », tester Modifier puis (sur une fiche fictive) Supprimer.
+8. Dans « Exports », choisir une localité puis télécharger Word, et tester ZIP.
+9. Dans « Paramètres », accéder aux archives, régler l'archivage et enregistrer les choix.
+
+NE PAS VIDER LES DONNÉES DU SITE CHROME, ni désinstaller l’application sans sauvegarder les enquêtes !
+
+ATTENTION : la synchronisation OneDrive NOVEC n’est pas encore activée. Les données restent locales sur chaque appareil. Les fichiers publiés sur GitHub Pages sont publics : ne téléversez aucune enquête, photo ou identifiant confidentiel dans votre dépôt GitHub.
