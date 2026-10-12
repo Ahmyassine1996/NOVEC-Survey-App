@@ -1,0 +1,13 @@
+{
+  "name": "novec-survey-app",
+  "version": "1.3.0",
+  "private": true,
+  "type": "module",
+  "description": "Mise à jour de NOVEC Survey, application statique sans compilation.",
+  "scripts": {
+    "test": "node --test tests/core.test.mjs tests/service.test.mjs tests/exif.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

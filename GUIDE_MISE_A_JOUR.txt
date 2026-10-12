@@ -1,0 +1,12 @@
+NOVEC SURVEY v1.3 — MISE A JOUR RAPIDE
+
+1) Sauvegarder les fiches de l’application précédente sur chaque téléphone : onglet Sauvegardes > Télécharger la sauvegarde JSON.
+2) Décompresser le ZIP de la v1.3 sur le PC.
+3) GitHub > dépôt de NOVEC Survey > main > Add file / Upload files.
+4) Envoyer LE CONTENU du dossier, avec index.html à la racine (ainsi que js/, data/, icons/...).
+5) Commit changes ; attendre la fin du déploiement Pages (onglet Actions).
+6) Ouvrir l’ancienne adresse HTTPS sur Android ; accepter la mise à jour proposée, sans supprimer les données du site.
+7) Vérifier v1.3 dans Profil.
+8) Essayer une fiche fictive, une photo avec GPS, exporter le JPEG et le Word.
+
+IMPORTANT : ne pas vider le cache de stockage/données du site sans sauvegarde ; cela peut effacer les fiches locales. L’export OneDrive n’est pas automatique.
