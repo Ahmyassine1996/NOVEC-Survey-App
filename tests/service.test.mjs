@@ -1,0 +1,11 @@
+import test from 'node:test';import assert from 'node:assert/strict';import http from 'node:http';
+import {createHandler} from '../transcription-service/server.mjs';
+const token='test-token-'.repeat(4),origin='https://ahmyassine1996.github.io';
+test('Service : clé côté serveur, accès contrôlé, multipart et réponse de transcription',async()=>{let called=0;
+ const handler=createHandler({apiKey:'fake-api-key-for-test',accessToken:token,allowedOrigin:origin,fetcher:async(url,init)=>{called++;assert.equal(url,'https://api.openai.com/v1/audio/transcriptions');assert.equal(init.headers.Authorization,'Bearer fake-api-key-for-test');assert.equal(init.body.get('model'),'gpt-4o-mini-transcribe');return new Response(JSON.stringify({text:'Deux buses partiellement obstruées.'}),{status:200});}});
+ const server=http.createServer(handler);await new Promise(r=>server.listen(0,'127.0.0.1',r));const url=`http://127.0.0.1:${server.address().port}/transcribe`;
+ try{const form=()=>{const f=new FormData();f.append('file',new Blob(['test'],{type:'audio/webm'}),'note.webm');f.append('language','fr');return f;};
+ assert.equal((await fetch(url,{method:'POST',body:form(),headers:{Origin:origin}})).status,401);
+ assert.equal((await fetch(url,{method:'POST',body:form(),headers:{Origin:'https://untrusted.example',Authorization:'Bearer '+token}})).status,403);
+ const res=await fetch(url,{method:'POST',body:form(),headers:{Origin:origin,Authorization:'Bearer '+token}});assert.equal(res.status,200);assert.deepEqual(await res.json(),{text:'Deux buses partiellement obstruées.'});assert.equal(res.headers.get('access-control-allow-origin'),origin);assert.equal(called,1);
+ }finally{await new Promise(r=>server.close(r));}});
